@@ -1,0 +1,294 @@
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Makeup Tattoo – Em Breve</title>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+    body {
+      font-family: 'Lato', sans-serif;
+      background: #0d0d0d;
+      color: #f5e6d3;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+    }
+
+    /* ── HERO ── */
+    .hero {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 60px 24px 40px;
+      position: relative;
+      overflow: hidden;
+    }
+
+    /* decorative gradient blobs */
+    .hero::before {
+      content: '';
+      position: absolute;
+      width: 600px; height: 600px;
+      background: radial-gradient(circle, rgba(180,90,120,0.35) 0%, transparent 70%);
+      top: -100px; left: -150px;
+      pointer-events: none;
+    }
+    .hero::after {
+      content: '';
+      position: absolute;
+      width: 500px; height: 500px;
+      background: radial-gradient(circle, rgba(210,140,80,0.25) 0%, transparent 70%);
+      bottom: -80px; right: -100px;
+      pointer-events: none;
+    }
+
+    .badge {
+      display: inline-block;
+      font-size: 0.7rem;
+      letter-spacing: 0.25em;
+      text-transform: uppercase;
+      color: #c9856a;
+      border: 1px solid #c9856a;
+      padding: 6px 18px;
+      border-radius: 50px;
+      margin-bottom: 32px;
+    }
+
+    .logo {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(3rem, 10vw, 6.5rem);
+      font-weight: 700;
+      line-height: 1.05;
+      background: linear-gradient(135deg, #e8c4a0 0%, #c9856a 40%, #a0405a 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 8px;
+    }
+
+    .logo span {
+      font-style: italic;
+      font-weight: 400;
+    }
+
+    .tagline {
+      font-size: clamp(0.95rem, 2.5vw, 1.2rem);
+      font-weight: 300;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: #c9a98a;
+      margin-bottom: 48px;
+    }
+
+    .divider {
+      width: 60px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #c9856a, transparent);
+      margin: 0 auto 48px;
+    }
+
+    .teaser {
+      max-width: 560px;
+      font-size: clamp(1rem, 2.5vw, 1.15rem);
+      line-height: 1.85;
+      color: #d4bfad;
+      margin-bottom: 56px;
+    }
+
+    .teaser strong {
+      color: #e8c4a0;
+      font-weight: 700;
+    }
+
+    /* countdown */
+    .countdown-label {
+      font-size: 0.7rem;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      color: #a07060;
+      margin-bottom: 20px;
+    }
+
+    .countdown {
+      display: flex;
+      gap: 24px;
+      justify-content: center;
+      margin-bottom: 60px;
+    }
+
+    .countdown-item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .countdown-item .num {
+      font-family: 'Playfair Display', serif;
+      font-size: clamp(2rem, 6vw, 3rem);
+      font-weight: 700;
+      color: #e8c4a0;
+      line-height: 1;
+      min-width: 64px;
+      text-align: center;
+    }
+
+    .countdown-item .lbl {
+      font-size: 0.65rem;
+      letter-spacing: 0.18em;
+      text-transform: uppercase;
+      color: #a07060;
+    }
+
+    /* notify form */
+    .notify-form {
+      display: flex;
+      gap: 0;
+      max-width: 420px;
+      width: 100%;
+      border: 1px solid rgba(201,133,106,0.4);
+      border-radius: 50px;
+      overflow: hidden;
+      background: rgba(255,255,255,0.04);
+    }
+
+    .notify-form input {
+      flex: 1;
+      background: transparent;
+      border: none;
+      outline: none;
+      padding: 14px 22px;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.9rem;
+      color: #f5e6d3;
+    }
+
+    .notify-form input::placeholder { color: #7a6055; }
+
+    .notify-form button {
+      background: linear-gradient(135deg, #c9856a, #a0405a);
+      border: none;
+      padding: 14px 28px;
+      font-family: 'Lato', sans-serif;
+      font-size: 0.8rem;
+      font-weight: 700;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: #fff;
+      cursor: pointer;
+      transition: opacity 0.2s;
+    }
+
+    .notify-form button:hover { opacity: 0.85; }
+
+    /* ── FOOTER ── */
+    footer {
+      text-align: center;
+      padding: 24px 16px;
+      border-top: 1px solid rgba(201,133,106,0.15);
+      font-size: 0.78rem;
+      color: #6a5048;
+      letter-spacing: 0.05em;
+      line-height: 1.9;
+    }
+
+    footer a {
+      color: #a07060;
+      text-decoration: none;
+    }
+
+    footer a:hover { color: #c9856a; }
+  </style>
+</head>
+<body>
+
+  <section class="hero">
+    <div class="badge">Novidade exclusiva</div>
+
+    <div class="logo">Makeup <span>Tattoo</span></div>
+    <div class="tagline">Arte que fica. Beleza que dura.</div>
+
+    <div class="divider"></div>
+
+    <p class="teaser">
+      Algo <strong>revolucionário</strong> está prestes a chegar.<br/>
+      Uma fusão única entre maquiagem e arte corporal —<br/>
+      criada para quem não abre mão de <strong>estilo, durabilidade</strong><br/>
+      e uma beleza verdadeiramente <strong>inesquecível</strong>.
+    </p>
+
+    <div class="countdown-label">Lançamento em</div>
+    <div class="countdown">
+      <div class="countdown-item"><span class="num" id="days">00</span><span class="lbl">Dias</span></div>
+      <div class="countdown-item"><span class="num" id="hours">00</span><span class="lbl">Horas</span></div>
+      <div class="countdown-item"><span class="num" id="mins">00</span><span class="lbl">Min</span></div>
+      <div class="countdown-item"><span class="num" id="secs">00</span><span class="lbl">Seg</span></div>
+    </div>
+
+    <form class="notify-form" onsubmit="handleSubmit(event)">
+      <input type="email" placeholder="Seu melhor e-mail" required />
+      <button type="submit">Avise-me</button>
+    </form>
+  </section>
+
+  <footer>
+    © <span id="year"></span> Makeup Tattoo  |  Todos os direitos reservados.<br/>
+    <a href="mailto:ed.p@terra.com.br">ed.p@terra.com.br</a>
+      ·  
+    <a href="tel:+5547991020000">+55 47 99102-0000</a>
+      ·  
+    Brasil
+  </footer>
+
+  <script>
+    // ── Countdown ──
+    const launch = new Date('2026-07-01T00:00:00');
+
+    function pad(n){ return String(n).padStart(2,'0'); }
+
+    function tick(){
+      const now  = new Date();
+      const diff = launch - now;
+      if(diff <= 0){
+        document.getElementById('days').textContent  = '00';
+        document.getElementById('hours').textContent = '00';
+        document.getElementById('mins').textContent  = '00';
+        document.getElementById('secs').textContent  = '00';
+        return;
+      }
+      const d = Math.floor(diff / 86400000);
+      const h = Math.floor((diff % 86400000) / 3600000);
+      const m = Math.floor((diff % 3600000)  / 60000);
+      const s = Math.floor((diff % 60000)    / 1000);
+      document.getElementById('days').textContent  = pad(d);
+      document.getElementById('hours').textContent = pad(h);
+      document.getElementById('mins').textContent  = pad(m);
+      document.getElementById('secs').textContent  = pad(s);
+    }
+
+    tick();
+    setInterval(tick, 1000);
+
+    // ── Year ──
+    document.getElementById('year').textContent = new Date().getFullYear();
+
+    // ── Form ──
+    function handleSubmit(e){
+      e.preventDefault();
+      const btn = e.target.querySelector('button');
+      btn.textContent = '✓ Cadastrado!';
+      btn.style.background = 'linear-gradient(135deg,#5a9a6a,#2d6a3a)';
+      e.target.querySelector('input').value = '';
+      setTimeout(()=>{
+        btn.textContent = 'Avise-me';
+        btn.style.background = '';
+      }, 3000);
+    }
+  </script>
+</body>
+</html>
